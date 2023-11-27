@@ -15,7 +15,7 @@ app.use(cors());
 app.use('/products', productsRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://musyonchez:ukuruM20@pharmacy.afxy7cz.mongodb.net/sun_shine?retryWrites=true&w=majority';
-const PORT = 8080;
+const PORT = 'https://sun-shineserver.onrender.com';
 
 mongoose.connect(CONNECTION_URL)
   .then(() => app.listen(PORT, () => console.log(`Server Running on:${PORT}`)))
