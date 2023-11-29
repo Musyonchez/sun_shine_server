@@ -4,8 +4,7 @@ import { getProducts, getProductsPagenation } from '../controllers/products.js';
 const router = express.Router();
 
 // Get all users
-router.get('/', getProducts);
-router.get('/page=:page/per-page=:perPage', getProductsPagenation);
-
+router.get('/getall', getProducts);
+router.get('/getitems', getProductsPagenation);
 
 export default router;
