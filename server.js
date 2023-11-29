@@ -17,7 +17,7 @@ app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://musyonchez:ukuruM20@pharmacy.afxy7cz.mongodb.net/sun_shine?retryWrites=true&w=majority';
-const PORT = 8080;
+const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL)
   .then(() => app.listen(PORT, () => console.log(`Server Running on:${PORT}`)))
