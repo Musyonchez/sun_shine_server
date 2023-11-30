@@ -39,6 +39,43 @@ export const getProductsPagenation = async (req, res) => {
 };
 
 
+export const getProductsById = async (req, res) => {
+  try {
+    const { _id } = req.query;
+
+    const product = await ProductsMessage.findOne({ _id });
+
+    if (!product) {
+      // If user not found, return an error
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    console.error('Error fetching product by id:', error);
+    res.status(500).json({ error: 'Internal from controllers by email Server Error' });
+  }
+};
+
+
+
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.query;
+
+    const product = await ProductsMessage.findOne({ category });
+
+    if (!product) {
+      // If user not found, return an error
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    console.error('Error fetching product by category:', error);
+    res.status(500).json({ error: 'Internal from controllers by email Server Error' });
+  }
+};
 
 
 export default router;
